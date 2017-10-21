@@ -1,1 +1,2 @@
 theme: jekyll-theme-cayman
+include: _ejs_library
