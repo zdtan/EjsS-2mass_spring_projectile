@@ -839,6 +839,9 @@ var _stringProperties = {};
           _view.VelShape.linkProperty("X",  function() { return vx; }, function(_v) { vx = _v; } ); // HtmlView Page linking property 'X' for element 'VelShape'
           _view.VelShape.linkProperty("Y",  function() { return vy; }, function(_v) { vy = _v; } ); // HtmlView Page linking property 'Y' for element 'VelShape'
           _view.VelShape.setAction("OnDrag", _pause); // HtmlView Page setting action 'OnDrag' for element 'VelShape'
+          _view.text.linkProperty("X",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'X' for element 'text'
+          _view.text.linkProperty("Y",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'Y' for element 'text'
+          _view.text.linkProperty("Visibility",  function() { return _isPaused; } ); // HtmlView Page linking property 'Visibility' for element 'text'
           _view.plottingPanel.linkProperty("MaximumX",  function() { return tmax; }, function(_v) { tmax = _v; } ); // HtmlView Page linking property 'MaximumX' for element 'plottingPanel'
           _view.xTrail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'xTrail'
           _view.xTrail.linkProperty("InputY",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'InputY' for element 'xTrail'
@@ -985,6 +988,11 @@ function MassesAndSpringProjectile_View_0 (_topFrame) {
       .setProperty("EnabledPosition","ENABLED_ANY") // EJsS HtmlView.HtmlView Page: setting property 'EnabledPosition' for element 'VelShape'
       ;
 
+    _view._9(EJSS_DRAWING2D.text,"text", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'text'
+      .setProperty("RelativePosition","NORTH_WEST") // EJsS HtmlView.HtmlView Page: setting property 'RelativePosition' for element 'text'
+      .setProperty("Text","Drag me") // EJsS HtmlView.HtmlView Page: setting property 'Text' for element 'text'
+      ;
+
     _view._9(EJSS_DRAWING2D.arrow,"arrowY", _view.drawingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'arrowY'
       .setProperty("SizeX",0) // EJsS HtmlView.HtmlView Page: setting property 'SizeX' for element 'arrowY'
       .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'arrowY'
@@ -1119,11 +1127,12 @@ function MassesAndSpringProjectile_View_0 (_topFrame) {
       ;
 
     _view._9(EJSS_INTERFACE.panel,"panelPhaseSpace", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'panelPhaseSpace'
+      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panelPhaseSpace'
       ;
 
     _view._9(EJSS_DRAWING2D.plottingPanel,"XphaseSpacePlottingPanel", _view.panelPhaseSpace) // EJsS HtmlView.HtmlView Page: declaration of element 'XphaseSpacePlottingPanel'
       .setProperty("Height",350) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'XphaseSpacePlottingPanel'
-      .setProperty("Width","40%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'XphaseSpacePlottingPanel'
+      .setProperty("Width","50%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'XphaseSpacePlottingPanel'
       .setProperty("MinimumX",-1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'XphaseSpacePlottingPanel'
       .setProperty("MinimumY",-1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'XphaseSpacePlottingPanel'
       .setProperty("TitleY","Velocity") // EJsS HtmlView.HtmlView Page: setting property 'TitleY' for element 'XphaseSpacePlottingPanel'
@@ -1131,6 +1140,7 @@ function MassesAndSpringProjectile_View_0 (_topFrame) {
       .setProperty("AutoScaleY",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'XphaseSpacePlottingPanel'
       .setProperty("AutoScaleX",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'XphaseSpacePlottingPanel'
       .setProperty("Title","Phase Space (Horizontal Direction)") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'XphaseSpacePlottingPanel'
+      .setProperty("TitleFont","normal bold 12px ") // EJsS HtmlView.HtmlView Page: setting property 'TitleFont' for element 'XphaseSpacePlottingPanel'
       .setProperty("MaximumY",1) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'XphaseSpacePlottingPanel'
       .setProperty("MaximumX",1) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'XphaseSpacePlottingPanel'
       ;
@@ -1141,16 +1151,17 @@ function MassesAndSpringProjectile_View_0 (_topFrame) {
 
     _view._9(EJSS_DRAWING2D.plottingPanel,"YphaseSpacePlottingPanel", _view.panelPhaseSpace) // EJsS HtmlView.HtmlView Page: declaration of element 'YphaseSpacePlottingPanel'
       .setProperty("Height",350) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'YphaseSpacePlottingPanel'
-      .setProperty("Width","40%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'YphaseSpacePlottingPanel'
+      .setProperty("Width","50%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'YphaseSpacePlottingPanel'
+      .setProperty("Title","Phase Space (Vertical Direction)") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'YphaseSpacePlottingPanel'
+      .setProperty("MaximumY",1) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'YphaseSpacePlottingPanel'
+      .setProperty("MaximumX",1) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'YphaseSpacePlottingPanel'
       .setProperty("MinimumX",-1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'YphaseSpacePlottingPanel'
       .setProperty("MinimumY",-1) // EJsS HtmlView.HtmlView Page: setting property 'MinimumY' for element 'YphaseSpacePlottingPanel'
       .setProperty("TitleY","Velocity") // EJsS HtmlView.HtmlView Page: setting property 'TitleY' for element 'YphaseSpacePlottingPanel'
       .setProperty("TitleX","Displacement") // EJsS HtmlView.HtmlView Page: setting property 'TitleX' for element 'YphaseSpacePlottingPanel'
       .setProperty("AutoScaleY",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'YphaseSpacePlottingPanel'
       .setProperty("AutoScaleX",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'YphaseSpacePlottingPanel'
-      .setProperty("Title","Phase Space (Vertical Direction)") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'YphaseSpacePlottingPanel'
-      .setProperty("MaximumY",1) // EJsS HtmlView.HtmlView Page: setting property 'MaximumY' for element 'YphaseSpacePlottingPanel'
-      .setProperty("MaximumX",1) // EJsS HtmlView.HtmlView Page: setting property 'MaximumX' for element 'YphaseSpacePlottingPanel'
+      .setProperty("TitleFont","normal bold 12px ") // EJsS HtmlView.HtmlView Page: setting property 'TitleFont' for element 'YphaseSpacePlottingPanel'
       .setProperty("Display","inline-block") // EJsS HtmlView.HtmlView Page: setting property 'Display' for element 'YphaseSpacePlottingPanel'
       ;
 
