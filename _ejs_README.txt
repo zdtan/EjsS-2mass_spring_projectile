@@ -1,4 +1,4 @@
-<This document was created with EjsS version 5.2 (build 171013)>
+<This document was created with EjsS version 5.3 (build 231210)>
 
 All the files and subdirectories in this directory were extracted from a compressed ZIP file, and contain a Javascript simulation and its auxiliary files, created with Easy Java(script) Simulations <http://www.um.es/fem/EjsWiki>.
 

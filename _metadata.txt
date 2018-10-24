@@ -1,4 +1,4 @@
-generated-with: Easy Java/Javascript Simulations, version 5.2, build 171013. Visit http://www.um.es/fem/Ejs
+generated-with: Easy Java/Javascript Simulations, version 5.3, build 231210. Visit http://www.um.es/fem/Ejs
 title: Masses and Spring Projectile
 logo-image: MassAndSpring/masses-spring-projectile-screenshot-small.png
 author: Wolfgang Christian; Francisco Esquembre; Zhiming Darren TAN
@@ -6,7 +6,6 @@ copyright: Open Source Physics
 preferred-width: 1024
 preferred-height: 768
 author-image: MassAndSpring/WC_logo.png;./MassAndSpring/PacoEsquembre2011.png;./MassAndSpring/ScienceSamuraiDarrenTanSquareSmall.png
-source: MassesAndSpringProjectile.ejss
 main-script: 
 main-simulation: MassesAndSpringProjectile_Simulation.xhtml
 available-languages: 
@@ -19,7 +18,7 @@ page-index: MassesAndSpringProjectile_Intro_1.html
 page-title: Activities
 page-index: MassesAndSpringProjectile_Intro_2.html
 page-title: Masses and Spring Projectile
-page-index: MassesAndSpringProjectile_Simulation.xhtml
+page-index: index.html
 resource: MassAndSpring/masses-spring-projectile-screenshot-small.png
 resource: MassAndSpring/MassAndSpring.gif
 resource: MassAndSpring/MassAndSpring.png
