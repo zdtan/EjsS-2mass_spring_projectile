@@ -7,16 +7,16 @@ preferred-width: 1024
 preferred-height: 768
 author-image: MassAndSpring/WC_logo.png;./MassAndSpring/PacoEsquembre2011.png;./MassAndSpring/ScienceSamuraiDarrenTanSquareSmall.png
 main-script: 
-main-simulation: MassesAndSpringProjectile_Simulation.xhtml
+main-simulation: MassesAndSpringStringProjectile_Simulation.xhtml
 available-languages: 
-html-description: MassesAndSpringProjectile_Intro_2.html
-html-description: MassesAndSpringProjectile_Intro_1.html
-html-contents: MassesAndSpringProjectile_Contents.xhtml
-html-main: MassesAndSpringProjectile.xhtml
+html-description: MassesAndSpringStringProjectile_Intro_2.html
+html-description: MassesAndSpringStringProjectile_Intro_1.html
+html-contents: MassesAndSpringStringProjectile_Contents.xhtml
+html-main: MassesAndSpringStringProjectile.xhtml
 page-title: Introduction
-page-index: MassesAndSpringProjectile_Intro_1.html
+page-index: MassesAndSpringStringProjectile_Intro_1.html
 page-title: Activities
-page-index: MassesAndSpringProjectile_Intro_2.html
+page-index: MassesAndSpringStringProjectile_Intro_2.html
 page-title: Masses and Spring Projectile
 page-index: index.html
 resource: MassAndSpring/masses-spring-projectile-screenshot-small.png
