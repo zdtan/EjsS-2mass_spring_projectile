@@ -368,12 +368,12 @@ var _stringProperties = {};
     _view.plottingPanel.getAxisX().setPosition([0.0,0.5]);  // > Initialization.GraphAxes:2
     _view.plottingPanel.getTitleX().setPosition([0.05,0.5]);  // > Initialization.GraphAxes:3
     _view.plottingPanel.getAxisY().setPosition([1,0]);  // > Initialization.GraphAxes:4
-    _view.plottingPanel.getTitleY().setPosition([1,0.85]);  // > Initialization.GraphAxes:5
+    _view.plottingPanel.getTitleY().setPosition([1,0.65]);  // > Initialization.GraphAxes:5
     //velocity-time  // > Initialization.GraphAxes:6
     _view.plottingPanel2.getAxisX().setPosition([0.0,0.5]);  // > Initialization.GraphAxes:7
     _view.plottingPanel2.getTitleX().setPosition([0.05,0.5]);  // > Initialization.GraphAxes:8
     _view.plottingPanel2.getAxisY().setPosition([1,0]);  // > Initialization.GraphAxes:9
-    _view.plottingPanel2.getTitleY().setPosition([1,0.85]);  // > Initialization.GraphAxes:10
+    _view.plottingPanel2.getTitleY().setPosition([1,0.65]);  // > Initialization.GraphAxes:10
   });
 
   _model.addToInitialization(function() {
@@ -393,19 +393,21 @@ var _stringProperties = {};
     Dx=x-x1;  // > FixedRelations.Energy:2
     L=Math.sqrt(Dx*Dx+Dy*Dy);  // > FixedRelations.Energy:3
     T=0.5*m*(vx*vx+vy*vy)+0.5*m1*(vx1*vx1+vy1*vy1);  // > FixedRelations.Energy:4
-    V=0.5*k*(L-L0)*(L-L0);  // > FixedRelations.Energy:5
-    U=m*g*y+m1*g*y1;  // > FixedRelations.Energy:6
-    E=T+V+U;  // > FixedRelations.Energy:7
-    //figure out x-component acting due to x1 on x  // > FixedRelations.Energy:8
-    if (string && L<L0) {  // > FixedRelations.Energy:9
+    U=m*g*y+m1*g*y1;  // > FixedRelations.Energy:5
+    //figure out x-component acting due to x1 on x  // > FixedRelations.Energy:6
+    //also elastic potential energy  // > FixedRelations.Energy:7
+    if (string && L<L0) {  // > FixedRelations.Energy:8
+        V = 0;  // > FixedRelations.Energy:9
         Fx = 0;  // > FixedRelations.Energy:10
         Fy = 0;  // > FixedRelations.Energy:11
         showSpring = false;  // > FixedRelations.Energy:12
     } else {   // > FixedRelations.Energy:13
-        Fx = -k*(L-L0)*Dx/L-b*(vx-vx1);  // > FixedRelations.Energy:14
-        Fy = -k*(L-L0)*Dy/L-b*(vy-vy1);  // > FixedRelations.Energy:15
-        showSpring = true;  // > FixedRelations.Energy:16
-    }  // > FixedRelations.Energy:17
+        V = 0.5*k*(L-L0)*(L-L0);  // > FixedRelations.Energy:14
+        Fx = -k*(L-L0)*Dx/L-b*(vx-vx1);  // > FixedRelations.Energy:15
+        Fy = -k*(L-L0)*Dy/L-b*(vy-vy1);  // > FixedRelations.Energy:16
+        showSpring = true;  // > FixedRelations.Energy:17
+    }  // > FixedRelations.Energy:18
+    E=T+V+U;  // > FixedRelations.Energy:19
   });
 
   _model.addToFixedRelations(function() { _isPaused = _model.isPaused(); _isPlaying = _model.isPlaying(); });
@@ -863,11 +865,19 @@ var _stringProperties = {};
           _view.arrowY.linkProperty("Visibility",  function() { return _isPaused; } ); // HtmlView Page linking property 'Visibility' for element 'arrowY'
           _view.arrowX.linkProperty("Visibility",  function() { return _isPaused; } ); // HtmlView Page linking property 'Visibility' for element 'arrowX'
           _view.plottingPanel.linkProperty("MaximumX",  function() { return tmax; }, function(_v) { tmax = _v; } ); // HtmlView Page linking property 'MaximumX' for element 'plottingPanel'
+          _view.x1Trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'x1Trail'
+          _view.x1Trail.linkProperty("InputY",  function() { return x1; }, function(_v) { x1 = _v; } ); // HtmlView Page linking property 'InputY' for element 'x1Trail'
+          _view.y1Trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'y1Trail'
+          _view.y1Trail.linkProperty("InputY",  function() { return y1; }, function(_v) { y1 = _v; } ); // HtmlView Page linking property 'InputY' for element 'y1Trail'
           _view.xTrail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'xTrail'
           _view.xTrail.linkProperty("InputY",  function() { return x; }, function(_v) { x = _v; } ); // HtmlView Page linking property 'InputY' for element 'xTrail'
           _view.yTrail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'yTrail'
           _view.yTrail.linkProperty("InputY",  function() { return y; }, function(_v) { y = _v; } ); // HtmlView Page linking property 'InputY' for element 'yTrail'
           _view.plottingPanel2.linkProperty("MaximumX",  function() { return tmax; }, function(_v) { tmax = _v; } ); // HtmlView Page linking property 'MaximumX' for element 'plottingPanel2'
+          _view.vx1Trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'vx1Trail'
+          _view.vx1Trail.linkProperty("InputY",  function() { return vx1; }, function(_v) { vx1 = _v; } ); // HtmlView Page linking property 'InputY' for element 'vx1Trail'
+          _view.vy1Trail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'vy1Trail'
+          _view.vy1Trail.linkProperty("InputY",  function() { return vy1; }, function(_v) { vy1 = _v; } ); // HtmlView Page linking property 'InputY' for element 'vy1Trail'
           _view.vxTrail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'vxTrail'
           _view.vxTrail.linkProperty("InputY",  function() { return vx; }, function(_v) { vx = _v; } ); // HtmlView Page linking property 'InputY' for element 'vxTrail'
           _view.vyTrail.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'vyTrail'
@@ -904,6 +914,15 @@ var _stringProperties = {};
           _view.KSlider.linkProperty("Value",  function() { return k; }, function(_v) { k = _v; } ); // HtmlView Page linking property 'Value' for element 'KSlider'
           _view.dampSlider.setAction("OnRelease", _update); // HtmlView Page setting action 'OnRelease' for element 'dampSlider'
           _view.dampSlider.linkProperty("Value",  function() { return b; }, function(_v) { b = _v; } ); // HtmlView Page linking property 'Value' for element 'dampSlider'
+          _view.EnergyPlottingPanel.linkProperty("MaximumX",  function() { return tmax; }, function(_v) { tmax = _v; } ); // HtmlView Page linking property 'MaximumX' for element 'EnergyPlottingPanel'
+          _view.Total.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'Total'
+          _view.Total.linkProperty("InputY",  function() { return E; }, function(_v) { E = _v; } ); // HtmlView Page linking property 'InputY' for element 'Total'
+          _view.Elastic.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'Elastic'
+          _view.Elastic.linkProperty("InputY",  function() { return V; }, function(_v) { V = _v; } ); // HtmlView Page linking property 'InputY' for element 'Elastic'
+          _view.Gravitational.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'Gravitational'
+          _view.Gravitational.linkProperty("InputY",  function() { return U; }, function(_v) { U = _v; } ); // HtmlView Page linking property 'InputY' for element 'Gravitational'
+          _view.Kinetic.linkProperty("InputX",  function() { return t; }, function(_v) { t = _v; } ); // HtmlView Page linking property 'InputX' for element 'Kinetic'
+          _view.Kinetic.linkProperty("InputY",  function() { return T; }, function(_v) { T = _v; } ); // HtmlView Page linking property 'InputY' for element 'Kinetic'
           _view.XphaseSpaceTrail2D.linkProperty("InputX",  function() { return x-x1; } ); // HtmlView Page linking property 'InputX' for element 'XphaseSpaceTrail2D'
           _view.XphaseSpaceTrail2D.linkProperty("InputY",  function() { return vx-vx1; } ); // HtmlView Page linking property 'InputY' for element 'XphaseSpaceTrail2D'
           _view.YphaseSpaceTrail2D.linkProperty("InputX",  function() { return y-y1; } ); // HtmlView Page linking property 'InputX' for element 'YphaseSpaceTrail2D'
@@ -1048,6 +1067,7 @@ function MassesAndSpringStringProjectile_View_0 (_topFrame) {
     _view._9(EJSS_DRAWING2D.plottingPanel,"plottingPanel", _view.panel) // EJsS HtmlView.HtmlView Page: declaration of element 'plottingPanel'
       .setProperty("Height",250) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'plottingPanel'
       .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'plottingPanel'
+      .setProperty("TRMessage","thin: horizontal \n thick: vertical \n (colours correspond with masses)") // EJsS HtmlView.HtmlView Page: setting property 'TRMessage' for element 'plottingPanel'
       .setProperty("Gutters",[0,0,0,0]) // EJsS HtmlView.HtmlView Page: setting property 'Gutters' for element 'plottingPanel'
       .setProperty("MinimumX",0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'plottingPanel'
       .setProperty("TitleY","Position") // EJsS HtmlView.HtmlView Page: setting property 'TitleY' for element 'plottingPanel'
@@ -1055,8 +1075,16 @@ function MassesAndSpringStringProjectile_View_0 (_topFrame) {
       .setProperty("TitleX","Time") // EJsS HtmlView.HtmlView Page: setting property 'TitleX' for element 'plottingPanel'
       .setProperty("AutoScaleX",false) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'plottingPanel'
       .setProperty("Title","") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel'
-      .setProperty("TLMessage","thin: horizontal \n thick: vertical") // EJsS HtmlView.HtmlView Page: setting property 'TLMessage' for element 'plottingPanel'
       .setProperty("Display","block") // EJsS HtmlView.HtmlView Page: setting property 'Display' for element 'plottingPanel'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"x1Trail", _view.plottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'x1Trail'
+      .setProperty("LineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'x1Trail'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"y1Trail", _view.plottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'y1Trail'
+      .setProperty("LineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'y1Trail'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'y1Trail'
       ;
 
     _view._9(EJSS_DRAWING2D.trail,"xTrail", _view.plottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'xTrail'
@@ -1079,6 +1107,15 @@ function MassesAndSpringStringProjectile_View_0 (_topFrame) {
       .setProperty("AutoScaleX",false) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'plottingPanel2'
       .setProperty("Title","") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'plottingPanel2'
       .setProperty("Display","block") // EJsS HtmlView.HtmlView Page: setting property 'Display' for element 'plottingPanel2'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"vx1Trail", _view.plottingPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'vx1Trail'
+      .setProperty("LineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vx1Trail'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"vy1Trail", _view.plottingPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'vy1Trail'
+      .setProperty("LineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'vy1Trail'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'vy1Trail'
       ;
 
     _view._9(EJSS_DRAWING2D.trail,"vxTrail", _view.plottingPanel2) // EJsS HtmlView.HtmlView Page: declaration of element 'vxTrail'
@@ -1161,6 +1198,45 @@ function MassesAndSpringStringProjectile_View_0 (_topFrame) {
       .setProperty("Maximum",1) // EJsS HtmlView.HtmlView Page: setting property 'Maximum' for element 'dampSlider'
       .setProperty("ShowText",true) // EJsS HtmlView.HtmlView Page: setting property 'ShowText' for element 'dampSlider'
       .setProperty("Format","0.00") // EJsS HtmlView.HtmlView Page: setting property 'Format' for element 'dampSlider'
+      ;
+
+    _view._9(EJSS_INTERFACE.panel,"panelEnergy", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'panelEnergy'
+      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'panelEnergy'
+      ;
+
+    _view._9(EJSS_DRAWING2D.plottingPanel,"EnergyPlottingPanel", _view.panelEnergy) // EJsS HtmlView.HtmlView Page: declaration of element 'EnergyPlottingPanel'
+      .setProperty("Height",350) // EJsS HtmlView.HtmlView Page: setting property 'Height' for element 'EnergyPlottingPanel'
+      .setProperty("Width","100%") // EJsS HtmlView.HtmlView Page: setting property 'Width' for element 'EnergyPlottingPanel'
+      .setProperty("TRMessage","blue: kinetic energy \n red: grav. pot. \n black (thin): elastic pot. \n black (thick): total energy") // EJsS HtmlView.HtmlView Page: setting property 'TRMessage' for element 'EnergyPlottingPanel'
+      .setProperty("MinimumX",0) // EJsS HtmlView.HtmlView Page: setting property 'MinimumX' for element 'EnergyPlottingPanel'
+      .setProperty("TitleY","Energy") // EJsS HtmlView.HtmlView Page: setting property 'TitleY' for element 'EnergyPlottingPanel'
+      .setProperty("TitleX","Time") // EJsS HtmlView.HtmlView Page: setting property 'TitleX' for element 'EnergyPlottingPanel'
+      .setProperty("AutoScaleY",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleY' for element 'EnergyPlottingPanel'
+      .setProperty("AutoScaleX",true) // EJsS HtmlView.HtmlView Page: setting property 'AutoScaleX' for element 'EnergyPlottingPanel'
+      .setProperty("Title","Energy against Time") // EJsS HtmlView.HtmlView Page: setting property 'Title' for element 'EnergyPlottingPanel'
+      .setProperty("TitleFont","normal bold 12px ") // EJsS HtmlView.HtmlView Page: setting property 'TitleFont' for element 'EnergyPlottingPanel'
+      .setProperty("Display","inline-block") // EJsS HtmlView.HtmlView Page: setting property 'Display' for element 'EnergyPlottingPanel'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"Total", _view.EnergyPlottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'Total'
+      .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'Total'
+      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'Total'
+      .setProperty("LineWidth",2) // EJsS HtmlView.HtmlView Page: setting property 'LineWidth' for element 'Total'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"Elastic", _view.EnergyPlottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'Elastic'
+      .setProperty("LineColor","Black") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'Elastic'
+      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'Elastic'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"Gravitational", _view.EnergyPlottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'Gravitational'
+      .setProperty("LineColor","Red") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'Gravitational'
+      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'Gravitational'
+      ;
+
+    _view._9(EJSS_DRAWING2D.trail,"Kinetic", _view.EnergyPlottingPanel) // EJsS HtmlView.HtmlView Page: declaration of element 'Kinetic'
+      .setProperty("LineColor","Blue") // EJsS HtmlView.HtmlView Page: setting property 'LineColor' for element 'Kinetic'
+      .setProperty("NoRepeat",true) // EJsS HtmlView.HtmlView Page: setting property 'NoRepeat' for element 'Kinetic'
       ;
 
     _view._9(EJSS_INTERFACE.panel,"panelPhaseSpace", _view._topFrame) // EJsS HtmlView.HtmlView Page: declaration of element 'panelPhaseSpace'
