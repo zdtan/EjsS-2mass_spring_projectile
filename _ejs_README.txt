@@ -1,6 +1,6 @@
-<This document was created with EjsS version 5.3 (build 231210)>
+<This document was created with EJS version 6.0 (build 201009)>
 
-All the files and subdirectories in this directory were extracted from a compressed ZIP file, and contain a Javascript simulation and its auxiliary files, created with Easy Java(script) Simulations <http://www.um.es/fem/EjsWiki>.
+All the files and subdirectories in this directory were extracted from a compressed ZIP file, and contain a Javascript simulation and its auxiliary files, created with Easy JavaScript Simulations <http://www.um.es/fem/EjsWiki>.
 
 A simulation directory has several HTML or XHTML files in it:
   - A main XHTML file named as the simulation.
@@ -14,4 +14,4 @@ To just run the simulation, open the XHTML file that ends with the "_Simulation"
 
 A simulation directory also contains a _metadata.txt file that you can inspect to get machine-generated information about the simulation and the different files contained in it.
 
-The simulation ZIP file can also be run on tablets using the EjsS Reader App available in Apple iTunes and in the Google Play store.
+The simulation ZIP file can also be run on tablets using the EJS Reader App available in Apple iTunes and in the Google Play store.

@@ -9,5 +9,5 @@ thumbnail="./MassAndSpring/masses-spring-projectile-screenshot-small.png">
 <Require feature="opensocial-0.9"/>
 <Require feature="dynamic-height"/>
 </ModulePrefs>
-<Content type="html" href="index.html"/>
+<Content type="html" href="MassesAndSpringStringProjectile_Simulation.xhtml"/>
 </Module>

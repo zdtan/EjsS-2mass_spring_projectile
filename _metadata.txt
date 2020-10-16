@@ -1,4 +1,4 @@
-generated-with: Easy Java/Javascript Simulations, version 5.3, build 231210. Visit http://www.um.es/fem/Ejs
+generated-with: Easy Java/Javascript Simulations, version 6.0, build 201009. Visit http://www.um.es/fem/Ejs
 title: Masses and Spring Projectile
 logo-image: MassAndSpring/masses-spring-projectile-screenshot-small.png
 author: Wolfgang Christian; Francisco Esquembre; Zhiming Darren TAN
@@ -18,7 +18,7 @@ page-index: MassesAndSpringStringProjectile_Intro_1.html
 page-title: Activities
 page-index: MassesAndSpringStringProjectile_Intro_2.html
 page-title: Masses and Spring Projectile
-page-index: index.html
+page-index: MassesAndSpringStringProjectile_Simulation.xhtml
 resource: MassAndSpring/masses-spring-projectile-screenshot-small.png
 resource: MassAndSpring/MassAndSpring.gif
 resource: MassAndSpring/MassAndSpring.png
